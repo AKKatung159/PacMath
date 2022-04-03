@@ -1,27 +1,26 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class GameLauncher {
-    public static void main(String[] args) {
-        new GameLauncher();
+
+public class GameLauncher extends Canvas {
+    public void paint(Graphics g) {
+        Toolkit t=Toolkit.getDefaultToolkit();
+        Image i=t.getImage("Background/Background.gif");
+        Image j=t.getImage("Background/arrow.gif");
+        g.drawImage(i, 0,0,this);
+        g.drawImage(j, MyKeyListener.getPoint().x,MyKeyListener.getPoint().y,this);
     }
-    public GameLauncher(){
-        JFrame frame = new JFrame();
-
-        JLabel bg =new JLabel(new ImageIcon(getClass().getResource("/Background/Background.gif")));
-        JLabel arrow = new JLabel(new ImageIcon(getClass().getResource("/Background/arrow.gif")));
-
-        JPanel panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder());//512,720,512,720
-        panel.setLayout(new GridLayout(0,1));
-        //panel.se;
-        //panel.add(arrow);
-        panel.add(bg);
-
-        frame.add(panel,BorderLayout.CENTER);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("PackMath");
-        frame.pack();
-        frame.setVisible(true);
+    public static void main(String[] args) {
+        GameLauncher m=new GameLauncher();
+        JFrame f=new JFrame();
+        f.add(m);
+        f.addKeyListener(new MyKeyListener());
+        f.remove(m);
+        f.add(m);
+        f.setSize(1200,853);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setVisible(true);
     }
 }
