@@ -41,8 +41,9 @@ public class MyKeyListener implements KeyListener {
             }
             else if(j%3==1){
                 f.getContentPane().removeAll();
-                f.repaint();
                 f.add(new AboutDisplay());
+                f.validate();
+                f.removeKeyListener(f.getKeyListeners()[0]);
             }
             else if(j%3==2){
                 f.dispose();
