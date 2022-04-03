@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -6,7 +7,9 @@ public class MyKeyListener implements KeyListener {
     private  static Point[] p=new Point[3];
     private static int key;
     private static int j = 300;
-    public MyKeyListener(){
+    private JFrame f;
+    public MyKeyListener(JFrame f){
+        this.f=f;
         p[0]=new Point(430,465);
         p[1]=new Point(430,585);
         p[2]=new Point(430,695);
@@ -19,9 +22,31 @@ public class MyKeyListener implements KeyListener {
         //System.out.println(key);
         if(key==40) {
             j+=1;
+            Sound s=new Sound();
+            s.setFile(0);
+            s.play();
         }
         if(key==38) {
             j-=1;
+            Sound s=new Sound();
+            s.setFile(0);
+            s.play();
+        }
+        if(key==10){
+            Sound s=new Sound();
+            s.setFile(0);
+            s.play();
+            if(j%3==0){
+                System.out.println("play");
+            }
+            else if(j%3==1){
+                f.getContentPane().removeAll();
+                f.repaint();
+                f.add(new AboutDisplay());
+            }
+            else if(j%3==2){
+                f.dispose();
+            }
         }
     }
     public void keyReleased(KeyEvent e){
@@ -33,5 +58,4 @@ public class MyKeyListener implements KeyListener {
         return p[j%3];
     }
 }
-
 //down 40 up 38 enter 10
