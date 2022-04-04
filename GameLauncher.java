@@ -26,6 +26,7 @@ public class GameLauncher {
         s.loop();
 
         f.add(new MainDisplay());
+        f.setTitle("PAC MATH");
         //f.getContentPane().removeAll();
         //f.add(new AboutDisplay());
         f.addKeyListener(new MainKeyListener(f));
