@@ -28,8 +28,9 @@ public class GameLauncher {
         f.add(new MainDisplay());
         //f.getContentPane().removeAll();
         //f.add(new AboutDisplay());
-        f.addKeyListener(new MyKeyListener(f));
-        f.setSize(1200,853);
+        f.addKeyListener(new MainKeyListener(f));
+        f.setSize(720,512);
+        f.setResizable(false);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
     }

@@ -3,16 +3,16 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class MyKeyListener implements KeyListener {
+public class MainKeyListener implements KeyListener {
     private  static Point[] p=new Point[3];
     private static int key;
-    private static int j = 300;
+    private static int j = 0;
     private JFrame f;
-    public MyKeyListener(JFrame f){
+    public MainKeyListener(JFrame f){
         this.f=f;
-        p[0]=new Point(430,465);
-        p[1]=new Point(430,585);
-        p[2]=new Point(430,695);
+        p[0]=new Point(260,280);
+        p[1]=new Point(260,350);
+        p[2]=new Point(260,420);
     }
     public void keyTyped(KeyEvent e){
 
@@ -28,6 +28,9 @@ public class MyKeyListener implements KeyListener {
         }
         if(key==38) {
             j-=1;
+            if(j<0){
+                j=3;
+            }
             Sound s=new Sound();
             s.setFile(0);
             s.play();
@@ -44,6 +47,7 @@ public class MyKeyListener implements KeyListener {
                 f.add(new AboutDisplay());
                 f.validate();
                 f.removeKeyListener(f.getKeyListeners()[0]);
+                f.addKeyListener(new AboutKeyListener(f));
             }
             else if(j%3==2){
                 f.dispose();
