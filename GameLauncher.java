@@ -28,6 +28,8 @@ public class GameLauncher {
         f.add(new MainDisplay());
         f.setTitle("PAC MATH");
         f.setBackground(Color.BLACK);
+        f.setLocation(360,256);
+        f.setAlwaysOnTop(true);
         //f.getContentPane().removeAll();
         //f.add(new AboutDisplay());
         f.addKeyListener(new MainKeyListener(f));

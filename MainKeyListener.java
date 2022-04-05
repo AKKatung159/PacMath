@@ -20,13 +20,13 @@ public class MainKeyListener implements KeyListener {
     public void keyPressed(KeyEvent e){
         key =e.getKeyCode();
         //System.out.println(key);
-        if(key==40) {
+        if(key==40) {//down arrow
             j+=1;
             Sound s=new Sound();
             s.setFile(0);
             s.play();
         }
-        if(key==38) {
+        if(key==38) {//up arrow
             j-=1;
             if(j<0){
                 j=3;
@@ -35,12 +35,16 @@ public class MainKeyListener implements KeyListener {
             s.setFile(0);
             s.play();
         }
-        if(key==10){
+        if(key==10){//enter
             Sound s=new Sound();
             s.setFile(0);
             s.play();
             if(j%3==0){
-                System.out.println("play");
+                f.getContentPane().removeAll();
+                f.add(new GameDisplay());
+                f.validate();
+                f.removeKeyListener(f.getKeyListeners()[0]);
+                f.addKeyListener(new GameKeyListener(f));
             }
             else if(j%3==1){
                 f.getContentPane().removeAll();
