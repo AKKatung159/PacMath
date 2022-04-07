@@ -18,10 +18,10 @@ public class GameKeyListener implements KeyListener {
     public void keyPressed(KeyEvent e){
         key =e.getKeyCode();
         System.out.println(key);
-        if(key==37&&getPoint().x>80){
+        if(key==37){//&&getPoint().x>80
             getPoint().x-=15;
         }
-        else if(key==39&&getPoint().x<580){
+        else if(key==39){//&&getPoint().x<580
             getPoint().x+=15;
 
         }

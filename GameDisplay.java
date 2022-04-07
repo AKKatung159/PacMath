@@ -15,7 +15,6 @@ public class GameDisplay extends Canvas {
         for (int j = 0; j < 8; j++) {
             stage[j]=t.getImage("Asset/"+(j+1)+".gif");
         }
-
         Random r=new Random();
         //[r.nextInt(8)],0,0,this
         g.setFont(new Font("Emulogic",1,14));
