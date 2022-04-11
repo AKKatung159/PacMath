@@ -1,8 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 
 public class GameLauncher {
     private static JFrame f;
@@ -12,14 +9,14 @@ public class GameLauncher {
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
-                GameLauncher gameLauncher=new GameLauncher();
+                GameLauncher gameLauncher = new GameLauncher();
             }
         });
     }
-    public GameLauncher(){
-        f=new JFrame();
-        //Canvas m=new MainDisplay();
-        Sound s=new Sound();
+    public GameLauncher() {
+        f = new JFrame();
+        // Canvas m = new MainDisplay();
+        Sound s = new Sound();
 
         s.setFile(1);
         s.play();
@@ -28,12 +25,12 @@ public class GameLauncher {
         f.add(new MainDisplay());
         f.setTitle("PAC MATH");
         f.setBackground(Color.BLACK);
-        f.setLocation(360,256);
+        f.setLocation(360, 256);
         f.setAlwaysOnTop(true);
         //f.getContentPane().removeAll();
         //f.add(new AboutDisplay());
         f.addKeyListener(new MainKeyListener(f));
-        f.setSize(720,512);
+        f.setSize(720, 512);
         f.setResizable(false);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
