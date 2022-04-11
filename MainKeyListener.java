@@ -37,7 +37,7 @@ public class MainKeyListener implements KeyListener {
             Sound s = new Sound();
             s.setFile(0);
             s.play();
-            if  (j%3 == 0) {
+            if (j%3 == 0) {
                 f.getContentPane().removeAll();
                 f.add(new GameDisplay());
                 f.validate();

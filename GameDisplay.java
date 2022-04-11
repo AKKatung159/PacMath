@@ -12,13 +12,13 @@ public class GameDisplay extends Canvas {
         }
         Random r = new Random();
         //[r.nextInt(8)], 0, 0, this
-        g.setFont(new Font("Emulogic",1,14));
+        g.setFont(new Font("Emulogic", 1, 14));
         g.setColor(Color.cyan);
         //i = i.getScaledInstance(200, 200, Image.SCALE_FAST);
-        g.drawImage(i,0,0,this);
-        g.drawImage(stage[0], EnemyMove.getXmove(), EnemyMove.getYmove(), EnemyMove.getSizeWeight(), EnemyMove.getSizeHigh(),this );
+        g.drawImage(i, 0, 0, this);
+        g.drawImage(stage[0], EnemyMove.getXmove(), EnemyMove.getYmove(), EnemyMove.getSizeWeight(), EnemyMove.getSizeHigh(), this );
         //g.drawImage(k, GameKeyListener.getPoint().x, GameKeyListener.getPoint().y, this); //k
-        g.drawImage(stage[0], GameKeyListener.getPoint().x, GameKeyListener.getPoint().y, GameKeyListener.getSize().x, GameKeyListener.getSize().y,this); //k
+        g.drawImage(stage[0], GameKeyListener.getPoint().x, GameKeyListener.getPoint().y, GameKeyListener.getSize().x, GameKeyListener.getSize().y, this); //k
         //g.drawString("Score " + GameKeyListener.getPoint().x, 20, 30);
         g.drawString("X : " + GameKeyListener.getPoint().x, 20, 30);
         g.drawString("Y : " + GameKeyListener.getPoint().y, 20, 50);
