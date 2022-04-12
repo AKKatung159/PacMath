@@ -10,7 +10,7 @@ public class GameKeyListener implements KeyListener {
     private static Point Size = new Point((int) (60*5.6), 60);
     public GameKeyListener(JFrame f) {
         this.f = f;
-        PlayerPoint = new Point(330, 380);
+        PlayerPoint = new Point(180, 0);
     }
     public void keyTyped(KeyEvent e) {}
     public void keyPressed(KeyEvent e) {
