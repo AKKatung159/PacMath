@@ -3,6 +3,9 @@ public class EnemyMove {
     private static int SizeLength = (int) (getSizeHeight()*5.6);
     private static int xmove = (int) (getSizeHeight()*3);
     private static int ymove = 0;
+
+    public EnemyMove(){
+    }
     public static int getXmove(){
         return xmove;
     }

@@ -17,7 +17,7 @@ public class GameLauncher {
         mainFrame = new JFrame();
         Sound sound = new Sound();
 
-        sound.setFile(1);
+        sound.setFile(2);//1
         sound.play();
         sound.loop();
 
