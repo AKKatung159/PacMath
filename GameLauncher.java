@@ -2,9 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameLauncher {
-    private static JFrame f;
-    public static JFrame getF(){
-        return f;
+    private static JFrame mainFrame;
+    public static JFrame getMainFrame(){
+        return mainFrame;
     }
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -14,25 +14,22 @@ public class GameLauncher {
         });
     }
     public GameLauncher() {
-        f = new JFrame();
-        // Canvas m = new MainDisplay();
-        Sound s = new Sound();
+        mainFrame = new JFrame();
+        Sound sound = new Sound();
 
-        s.setFile(1);
-        s.play();
-        s.loop();
+        sound.setFile(1);
+        sound.play();
+        sound.loop();
 
-        f.add(new MainDisplay());
-        f.setTitle("PAC MATH");
-        f.setBackground(Color.BLACK);
-        f.setLocation(360, 256);
-        f.setAlwaysOnTop(true);
-        //f.getContentPane().removeAll();
-        //f.add(new AboutDisplay());
-        f.addKeyListener(new MainKeyListener(f));
-        f.setSize(720, 512);
-        f.setResizable(false);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setVisible(true);
+        mainFrame.add(new MainDisplay());
+        mainFrame.setTitle("PAC MATH");
+        mainFrame.setBackground(Color.BLACK);
+        mainFrame.setLocation(360, 256);
+        mainFrame.setAlwaysOnTop(true);
+        mainFrame.addKeyListener(new MainKeyListener());
+        mainFrame.setSize(720, 512);
+        mainFrame.setResizable(false);
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.setVisible(true);
     }
 }

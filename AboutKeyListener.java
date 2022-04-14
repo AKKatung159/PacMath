@@ -22,7 +22,7 @@ public class AboutKeyListener implements KeyListener {
             f.add(new MainDisplay());
             f.validate();
             f.removeKeyListener(f.getKeyListeners()[0]);
-            f.addKeyListener(new MainKeyListener(f));
+            f.addKeyListener(new MainKeyListener());
         }
     }
     public void keyReleased(KeyEvent e) {}

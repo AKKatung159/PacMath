@@ -7,8 +7,8 @@ public class MainKeyListener implements KeyListener {
     private static Point[] p = new Point[3];
     private static int key;
     private static int j = 0;
-    private JFrame f;
-    public MainKeyListener(JFrame f) {
+    private JFrame f=GameLauncher.getMainFrame();
+    public MainKeyListener() {
         this.f = f;
         p[0] = new Point(260, 280);
         p[1] = new Point(260, 350);
@@ -55,11 +55,25 @@ public class MainKeyListener implements KeyListener {
                 f.dispose();
             }
         }
+        //---------------------------
+        if(key==87){//win
+            f.getContentPane().removeAll();
+            f.add(new GameWinDisplay());
+            f.validate();
+            f.removeKeyListener(f.getKeyListeners()[0]);
+            f.addKeyListener(new GameWinKeyListener());
+        }
+        if(key==76){//lose
+            f.getContentPane().removeAll();
+            f.add(new GameLoseDisplay());
+            f.validate();
+            f.removeKeyListener(f.getKeyListeners()[0]);
+            f.addKeyListener(new GameLoseKeyListener());
+        }
+        //---------------------------
     }
     public void keyReleased(KeyEvent e) {}
     public static Point getPoint() {
-        Point k = p[0];
-        k = p[j%3];
         return p[j%3];
     }
 }

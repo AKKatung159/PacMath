@@ -16,7 +16,12 @@ public class GameDisplay extends Canvas {
         g.setColor(Color.cyan);
         //i = i.getScaledInstance(200, 200, Image.SCALE_FAST);
         g.drawImage(i, 0, 0, this);
-        g.drawImage(stage[0], EnemyMove.getXmove(), EnemyMove.getYmove(), EnemyMove.getSizeLength(), EnemyMove.getSizeHeight(), this );
+        //System.out.println("x "+(-(GameLauncher.getMainFrame().getWidth() - stage[0].getWidth(null))/2));
+        //System.out.println("y "+(GameLauncher.getMainFrame().getHeight() - stage[0].getHeight(null))/2);
+        //System.out.println("width"+EnemyMove.getSizeLength());
+        //System.out.println("Hight"+EnemyMove.getSizeHeight());
+        g.drawImage(stage[0],-(GameLauncher.getMainFrame().getWidth() - stage[0].getWidth(null))/2,(GameLauncher.getMainFrame().getHeight() - stage[0].getHeight(null))/2,EnemyMove.getSizeLength(),EnemyMove.getSizeHeight(),this );
+        //g.drawImage(stage[0], EnemyMove.getXmove(), EnemyMove.getYmove(), EnemyMove.getSizeLength(), EnemyMove.getSizeHeight(), this );
         //g.drawImage(k, GameKeyListener.getPoint().x, GameKeyListener.getPoint().y, this); //k
         g.drawImage(stage[0], GameKeyListener.getPoint().x, GameKeyListener.getPoint().y, GameKeyListener.getSize().x, GameKeyListener.getSize().y, this); //k
         //g.drawString("Score " + GameKeyListener.getPoint().x, 20, 30);
