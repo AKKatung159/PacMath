@@ -5,6 +5,10 @@ import java.util.Random;
 public class GameDisplay extends Canvas {
     private int num=0,num2=60,round=0,size=14,numscore=25,enemy=0;
     private JFrame frame=GameLauncher.getMainFrame();
+    private static String keyMove="";
+    public static String getKeyMove(){
+        return keyMove;
+    }
     public GameDisplay(){
         new GameLogic();
     }
@@ -16,10 +20,15 @@ public class GameDisplay extends Canvas {
         Image r = t.getImage("Background/Frame 2.png");
         Random random = new Random();
         if(num>300&&round<=GameLogic.getLap()){
+            if(GameKeyListener.getPoint().x>340){
+                GameLogic.checkScore("R");
+            }
+            else if (GameKeyListener.getPoint().x<=340){
+                GameLogic.checkScore("L");
+            }
             new GameLogic();
+
             round++;
-            System.out.println(round);
-            System.out.println(GameLogic.getLap());
             num=0;
             num2=60;
             numscore=25;
@@ -35,8 +44,8 @@ public class GameDisplay extends Canvas {
         }
         num+=6.25;
         num2+=1.25;
-        numscore+=8.25;
-        size++;
+        numscore+=7.75;
+        size+=0.5;
         Image[] stage = new Image[8];
         for (int j = 0; j < stage.length ; j++) {
             stage[j] = t.getImage("Asset/" + (j+1) + ".gif");
@@ -57,7 +66,7 @@ public class GameDisplay extends Canvas {
         g.drawString(GameLogic.getNumberForChoose()[0], (int) ((720 -200)/2),numscore);
         g.drawString(GameLogic.getNumberForChoose()[1], (int) ((720 + 60)/2),numscore);
 
-        g.drawImage(k, GameKeyListener.getPoint().x, GameKeyListener.getPoint().y,40, 40, this); //k
+        g.drawImage(k, GameKeyListener.getPoint().x, GameKeyListener.getPoint().y,40+(40*GameLogic.getScore()/1000), 40+(40*GameLogic.getScore()/1000), this); //k
         //g.drawString("Score " + GameKeyListener.getPoint().x, 20, 30);
         g.drawImage(l,0,-4,this);
         g.drawImage(r,GameLauncher.getMainFrame().getWidth()-r.getWidth(null),-4,this);

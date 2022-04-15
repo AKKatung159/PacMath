@@ -5,6 +5,7 @@ public class GameLogic {
     private static int score=0;
     private static final int lap=r.nextInt(8,10);
     private static String[] numberForChoose = new String[]{"", ""};
+    private static int[] answer = new int[2];
     public static int getScore(){return score;};
 
     public static int getLap(){return lap;}
@@ -12,7 +13,7 @@ public class GameLogic {
         int lape =r.nextInt(5,10);
         //System.out.println(lape);
         //for(int h=0;h<lape;h++){//สุ่มจำนวนรอบของประตู
-            int[] answer = new int[2];
+
             numberForChoose[0]=" ";
             numberForChoose[1]=" ";
             for(int i=0;i<2;i++){
@@ -46,16 +47,19 @@ public class GameLogic {
                 //System.out.print(b+a+"\t");
             //}
             //System.out.print("\nAns : ");
-//            String ans=sc.nextLine().trim();
-//            switch(ans){
-//                case "L"->score=answer[0];
-//                case "R"->score=answer[1];
-//            }
+            //String ans=GameDisplay.getKeyMove();
+
             //System.out.println("Score : "+score);
             if(score<0){
                 //System.out.println("Game Over");
                 break;
             }
+        }
+    }
+    public static void checkScore(String s){
+        switch(s){
+            case "L"->score=answer[0];
+            case "R"->score=answer[1];
         }
     }
     public static String[] getNumberForChoose(){return numberForChoose;}

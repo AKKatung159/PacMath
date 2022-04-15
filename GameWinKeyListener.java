@@ -25,6 +25,9 @@ public class GameWinKeyListener implements KeyListener {
             s.play();
         } else if (key == 38) {//right
             j -= 1;
+            if (j < 0) {
+                j = 3;
+            }
             Sound s = new Sound();
             s.setFile(0);
             s.play();
