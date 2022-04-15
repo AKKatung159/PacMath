@@ -42,7 +42,7 @@ public class MainKeyListener implements KeyListener {
                 f.add(new GameDisplay());
                 f.validate();
                 f.removeKeyListener(f.getKeyListeners()[0]);
-                f.addKeyListener(new GameKeyListener(f));
+                f.addKeyListener(new GameKeyListener());
             }
             else if (j%3 == 1) {
                 f.getContentPane().removeAll();

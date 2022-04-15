@@ -11,7 +11,7 @@ public class GameWinDisplay extends Canvas {
         g.setColor(new Color(164,200,255));
         g.drawImage(aboutDisplay, 0, 0, this);
         g.drawImage(arrow,GameWinKeyListener.getPoint().x,GameWinKeyListener.getPoint().y, 20, 20, this);
-        g.drawString("score 570",300,200);
+        g.drawString("score "+GameLogic.getScore(),300,200);
     }
 }
 //250 385

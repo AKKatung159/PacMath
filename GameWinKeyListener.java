@@ -37,7 +37,7 @@ public class GameWinKeyListener implements KeyListener {
                 f.add(new GameDisplay());
                 f.validate();
                 f.removeKeyListener(f.getKeyListeners()[0]);
-                f.addKeyListener(new GameKeyListener(f));
+                f.addKeyListener(new GameKeyListener());
             } else if (j % 2 == 1) {
                 f.getContentPane().removeAll();
                 f.add(new MainDisplay());

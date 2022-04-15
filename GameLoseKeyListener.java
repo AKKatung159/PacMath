@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class GameLoseKeyListener implements KeyListener {
     private int key;
     private static int j = 0;
-    private JFrame f=GameLauncher.getMainFrame();
+    private JFrame frame=GameLauncher.getMainFrame();
     private static Point[] arrowPoint=new Point[2];
     public GameLoseKeyListener(){
         arrowPoint[0]=new Point(250,305);
@@ -33,17 +33,17 @@ public class GameLoseKeyListener implements KeyListener {
             s.setFile(0);
             s.play();
             if (j % 2 == 0) {
-                f.getContentPane().removeAll();
-                f.add(new GameDisplay());
-                f.validate();
-                f.removeKeyListener(f.getKeyListeners()[0]);
-                f.addKeyListener(new GameKeyListener(f));
+                frame.getContentPane().removeAll();
+                frame.add(new GameDisplay());
+                frame.validate();
+                frame.removeKeyListener(frame.getKeyListeners()[0]);
+                frame.addKeyListener(new GameKeyListener());
             } else if (j % 2 == 1) {
-                f.getContentPane().removeAll();
-                f.add(new MainDisplay());
-                f.validate();
-                f.removeKeyListener(f.getKeyListeners()[0]);
-                f.addKeyListener(new MainKeyListener());
+                frame.getContentPane().removeAll();
+                frame.add(new MainDisplay());
+                frame.validate();
+                frame.removeKeyListener(frame.getKeyListeners()[0]);
+                frame.addKeyListener(new MainKeyListener());
             }
         }
     }
