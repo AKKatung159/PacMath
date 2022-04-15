@@ -4,6 +4,7 @@ public class GameLogic {
     private static Random r = new Random();
     private static int score=0;
     private static final int lap=r.nextInt(8,10);
+    private static int k=0;
     private static String[] numberForChoose = new String[]{"", ""};
     private static int[] answer = new int[2];
     public static int getScore(){return score;};
@@ -19,7 +20,7 @@ public class GameLogic {
             for(int i=0;i<2;i++){
                 int x=r.nextInt(6);//สุ่มเครื่องหมาย
                 int a=0;
-                int k=0;
+
                 String b="";
                 if(x<3){
                     a=r.nextInt(1,50);//สุ่มตัวเลข
@@ -43,6 +44,7 @@ public class GameLogic {
                     b="/";k=score/a;
                 }
                 answer[i]=k;
+                k=0;
                 numberForChoose[i]=b+a;
                 //System.out.print(b+a+"\t");
             //}
@@ -50,10 +52,10 @@ public class GameLogic {
             //String ans=GameDisplay.getKeyMove();
 
             //System.out.println("Score : "+score);
-            if(score<0){
-                //System.out.println("Game Over");
-                break;
-            }
+//            if(score<0){
+//                //System.out.println("Game Over");
+//                break;
+//            }
         }
     }
     public static void checkScore(String s){
@@ -61,6 +63,11 @@ public class GameLogic {
             case "L"->score=answer[0];
             case "R"->score=answer[1];
         }
+    }
+    public static void setScore(int s){
+        score=0;
+        k=0;
+        new GameLogic();
     }
     public static String[] getNumberForChoose(){return numberForChoose;}
 }

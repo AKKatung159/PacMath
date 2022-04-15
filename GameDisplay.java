@@ -11,6 +11,7 @@ public class GameDisplay extends Canvas {
     }
     public GameDisplay(){
         new GameLogic();
+        GameLogic.setScore(0);
     }
     public void paint(Graphics g) {
         Toolkit t = Toolkit.getDefaultToolkit();
