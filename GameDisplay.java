@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.Random;
 
 public class GameDisplay extends Canvas {
-    private int num=0,num2=60;
+    private int num=0,num2=60,round=0,size=14,numscore=25;
     public GameDisplay(){
     }
     public void paint(Graphics g) {
@@ -11,19 +11,24 @@ public class GameDisplay extends Canvas {
         Image k = t.getImage("Background/player.gif");
         Image l = t.getImage("Background/Frame 1.png");
         Image r = t.getImage("Background/Frame 2.png");
-        if(num>512){
+        if(num>300){
+            round++;
             num=0;
             num2=60;
+            numscore=25;
+            size=14;
         }
         num+=10;
         num2+=2;
+        numscore+=12;
+        size++;
         Image[] stage = new Image[8];
         for (int j = 0; j < stage.length ; j++) {
             stage[j] = t.getImage("Asset/" + (j+1) + ".gif");
         }
         Random random = new Random();
         //[r.nextInt(8)], 0, 0, this
-        g.setFont(new Font("Emulogic", 1, 14));
+        g.setFont(new Font("Emulogic", 1, size));
         g.setColor(Color.cyan);
         //i = i.getScaledInstance(200, 200, Image.SCALE_FAST);
         g.drawImage(i, 0, 0, this);
@@ -34,14 +39,14 @@ public class GameDisplay extends Canvas {
         g.drawImage(stage[0], (int) ((720 - num2*5.6)/2),num, (int) (num2*5.6),num2,this );//(GameLauncher.getMainFrame().getHeight() - stage[0].getHeight(null))/2
         //g.drawImage(stage[0], EnemyMove.getXmove(), EnemyMove.getYmove(), EnemyMove.getSizeLength(), EnemyMove.getSizeHeight(), this );
         //g.drawImage(k, GameKeyListener.getPoint().x, GameKeyListener.getPoint().y, this); //k
-        g.drawString("+30", (int) ((720 -140)/2),num+40);
-        g.drawString("-35", (int) ((720 +60)/2),num+40);
-        
+        g.drawString("+30", (int) ((720 -140)/2),numscore);
+        g.drawString("-35", (int) ((720 + 60)/2),numscore);
+
         g.drawImage(k, GameKeyListener.getPoint().x, GameKeyListener.getPoint().y,40, 40, this); //k
         //g.drawString("Score " + GameKeyListener.getPoint().x, 20, 30);
         g.drawImage(l,0,-4,this);
         g.drawImage(r,GameLauncher.getMainFrame().getWidth()-r.getWidth(null),-4,this);
-
+        g.setFont(new Font("Emulogic", 1, 14));
         g.drawString("SCORE : " + GameKeyListener.getPoint().x, 20, 30);
 //       g.drawString("Y : " + GameKeyListener.getPoint().y, 20, 50);
 //       g.drawString("Length : " + GameKeyListener.getSize().x, 20, 70);
