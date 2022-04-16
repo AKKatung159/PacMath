@@ -43,6 +43,13 @@ public class GameDisplay extends Canvas {
             frame.removeKeyListener(frame.getKeyListeners()[0]);
             frame.addKeyListener(new GameWinKeyListener());
         }
+        else if(GameLogic.getScore()<0){
+            frame.getContentPane().removeAll();
+            frame.add(new GameLoseDisplay());
+            frame.validate();
+            frame.removeKeyListener(frame.getKeyListeners()[0]);
+            frame.addKeyListener(new GameLoseKeyListener());
+        }
         num+=6.25;
         num2+=1.25;
         numscore+=7.75;
