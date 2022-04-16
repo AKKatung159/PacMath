@@ -13,11 +13,10 @@ public class GameKeyListener implements KeyListener {
         key = e.getKeyCode();
         //System.out.println(key);
         if (key == 37 && getPoint().x > 80) { //
-            getPoint().x -= 15; //เลื่อนซ้าย
+            getPoint().x -= 20; //เลื่อนซ้าย
         }
         else if (key == 39 && getPoint().x < 580) { //
-            getPoint().x += 15; //เลื่อนขวา
-
+            getPoint().x += 20; //เลื่อนขวา
         }
 //        else if (key == 38) {
 //            getPoint().y -= 10; //เลื่อนขึ้น

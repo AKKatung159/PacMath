@@ -17,7 +17,7 @@ public class GameWinKeyListener implements KeyListener {
     }
     public void keyPressed(KeyEvent e) {
         key = e.getKeyCode();
-        System.out.println(key);
+        //System.out.println(key);
         if (key == 40) {//left
             j += 1;
             Sound s = new Sound();

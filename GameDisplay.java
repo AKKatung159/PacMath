@@ -34,7 +34,22 @@ public class GameDisplay extends Canvas {
             num2=60;
             numscore=25;
             size=14;
-            enemy=random.nextInt(8);
+            //enemy=random.nextInt(8);
+            if(GameLogic.getNumberForChoose()[0].substring(0,1).equals("+")||GameLogic.getNumberForChoose()[0].substring(0,1).equals("*")){
+                if(GameLogic.getNumberForChoose()[1].substring(0,1).equals("+")||GameLogic.getNumberForChoose()[1].substring(0,1).equals("*")){
+                    enemy=0;
+                    System.out.println("++");
+                }
+                else enemy= random.nextInt(3,4);
+                System.out.println("+-");
+            }else {
+                if(GameLogic.getNumberForChoose()[1].substring(0,1).equals("+")||GameLogic.getNumberForChoose()[1].substring(0,1).equals("*")){
+                    enemy=random.nextInt(1,3);
+                    System.out.println("-+");
+                }
+                else enemy= random.nextInt(5,8);
+                System.out.println("--");
+            }
         }
         else if(round==GameLogic.getLap()){
             frame.getContentPane().removeAll();
@@ -70,19 +85,14 @@ public class GameDisplay extends Canvas {
         g.drawImage(stage[enemy], (int) ((720 - num2*5.6)/2),num, (int) (num2*5.6),num2,this );//(GameLauncher.getMainFrame().getHeight() - stage[0].getHeight(null))/2
         //g.drawImage(stage[0], EnemyMove.getXmove(), EnemyMove.getYmove(), EnemyMove.getSizeLength(), EnemyMove.getSizeHeight(), this );
         //g.drawImage(k, GameKeyListener.getPoint().x, GameKeyListener.getPoint().y, this); //k
-
         g.drawString(GameLogic.getNumberForChoose()[0], (int) ((720 -200)/2),numscore);
         g.drawString(GameLogic.getNumberForChoose()[1], (int) ((720 + 60)/2),numscore);
 
         g.drawImage(k, GameKeyListener.getPoint().x, GameKeyListener.getPoint().y,40+(40*GameLogic.getScore()/1000), 40+(40*GameLogic.getScore()/1000), this); //k
-        //g.drawString("Score " + GameKeyListener.getPoint().x, 20, 30);
+
         g.drawImage(l,0,-4,this);
         g.drawImage(r,GameLauncher.getMainFrame().getWidth()-r.getWidth(null),-4,this);
         g.setFont(new Font("Emulogic", 1, 14));
         g.drawString("SCORE : " + GameLogic.getScore(), 20, 30);
-//       g.drawString("Y : " + GameKeyListener.getPoint().y, 20, 50);
-//       g.drawString("Length : " + GameKeyListener.getSize().x, 20, 70);
-//       g.drawString("Height : " + GameKeyListener.getSize().y, 20, 90);
-//       g.drawImage(m, 0, 0, this);
     }
 }

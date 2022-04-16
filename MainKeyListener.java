@@ -49,13 +49,14 @@ public class MainKeyListener implements KeyListener {
                 f.add(new AboutDisplay());
                 f.validate();
                 f.removeKeyListener(f.getKeyListeners()[0]);
-                f.addKeyListener(new AboutKeyListener(f));
+                f.addKeyListener(new AboutKeyListener());
             }
             else if (j%3 == 2) {
                 f.dispose();
             }
         }
         //---------------------------
+        /*
         if(key==87){//win
             f.getContentPane().removeAll();
             f.add(new GameWinDisplay());
@@ -70,6 +71,7 @@ public class MainKeyListener implements KeyListener {
             f.removeKeyListener(f.getKeyListeners()[0]);
             f.addKeyListener(new GameLoseKeyListener());
         }
+        */
         //---------------------------
     }
     public void keyReleased(KeyEvent e) {}

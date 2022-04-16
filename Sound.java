@@ -2,8 +2,8 @@ import javax.sound.sampled.*;
 import java.net.URL;
 
 public class Sound {
-    Clip clip;
-    URL soundURL[] = new URL[20];
+    private Clip clip;
+    private URL soundURL[] = new URL[20];
     public Sound() {
         soundURL[0] = getClass().getResource("Background/ping_pong_8bit_plop.wav");
         soundURL[1] = getClass().getResource("Background/pacman_beginning.wav");
