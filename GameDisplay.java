@@ -5,6 +5,7 @@ import java.util.Random;
 public class GameDisplay extends Canvas {
     private int num=0,num2=60,round=0,size=14,numscore=25,enemy=0;
     private JFrame frame=GameLauncher.getMainFrame();
+    private Random random = new Random();
     private static String keyMove="";
     public static String getKeyMove(){
         return keyMove;
@@ -12,14 +13,35 @@ public class GameDisplay extends Canvas {
     public GameDisplay(){
         new GameLogic();
         GameLogic.setScore(0);
+        String st1=GameLogic.getNumberForChoose()[0].substring(0,1);
+        String st2=GameLogic.getNumberForChoose()[1].substring(0,1);
+        if(st1.equals("+")||st1.equals("*")){
+            //++
+            if(st2.equals("+")||st2.equals("*")){
+                enemy=0;
+            }
+            //+-
+            else {
+                enemy= random.nextInt(3,4);
+            }
+        }else {
+            //-+
+            if(st2.equals("+")||st2.equals("*")){
+                enemy=random.nextInt(1,3);
+            }
+            //--
+            else {
+                enemy= random.nextInt(5,8);
+            }
+        }
     }
+
     public void paint(Graphics g) {
         Toolkit t = Toolkit.getDefaultToolkit();
         Image i = t.getImage("Background/GameDisplay.png");
         Image k = t.getImage("Background/player.gif");
         Image l = t.getImage("Background/Frame 1.png");
         Image r = t.getImage("Background/Frame 2.png");
-        Random random = new Random();
         if(num>300&&round<=GameLogic.getLap()){
             if(GameKeyListener.getPoint().x>340){
                 GameLogic.checkScore("R");
@@ -35,20 +57,26 @@ public class GameDisplay extends Canvas {
             numscore=25;
             size=14;
             //enemy=random.nextInt(8);
-            if(GameLogic.getNumberForChoose()[0].substring(0,1).equals("+")||GameLogic.getNumberForChoose()[0].substring(0,1).equals("*")){
-                if(GameLogic.getNumberForChoose()[1].substring(0,1).equals("+")||GameLogic.getNumberForChoose()[1].substring(0,1).equals("*")){
+            String st1=GameLogic.getNumberForChoose()[0].substring(0,1);
+            String st2=GameLogic.getNumberForChoose()[1].substring(0,1);
+            if(st1.equals("+")||st1.equals("*")){
+                //++
+                if(st2.equals("+")||st2.equals("*")){
                     enemy=0;
-                    System.out.println("++");
                 }
-                else enemy= random.nextInt(3,4);
-                System.out.println("+-");
+                //+-
+                else {
+                    enemy= random.nextInt(3,4);
+                }
             }else {
-                if(GameLogic.getNumberForChoose()[1].substring(0,1).equals("+")||GameLogic.getNumberForChoose()[1].substring(0,1).equals("*")){
+                //-+
+                if(st2.equals("+")||st2.equals("*")){
                     enemy=random.nextInt(1,3);
-                    System.out.println("-+");
                 }
-                else enemy= random.nextInt(5,8);
-                System.out.println("--");
+                //--
+                else {
+                    enemy= random.nextInt(5,8);
+                }
             }
         }
         else if(round==GameLogic.getLap()){
