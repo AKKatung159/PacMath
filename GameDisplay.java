@@ -13,27 +13,7 @@ public class GameDisplay extends Canvas {
     public GameDisplay(){
         new GameLogic();
         GameLogic.setScore(0);
-        String st1=GameLogic.getNumberForChoose()[0].substring(0,1);
-        String st2=GameLogic.getNumberForChoose()[1].substring(0,1);
-        if(st1.equals("+")||st1.equals("*")){
-            //++
-            if(st2.equals("+")||st2.equals("*")){
-                enemy=0;
-            }
-            //+-
-            else {
-                enemy= random.nextInt(3,4);
-            }
-        }else {
-            //-+
-            if(st2.equals("+")||st2.equals("*")){
-                enemy=random.nextInt(1,3);
-            }
-            //--
-            else {
-                enemy= random.nextInt(5,8);
-            }
-        }
+        enemy=EnemyMove.getEnemyPic();
     }
 
     public void paint(Graphics g) {
@@ -57,27 +37,7 @@ public class GameDisplay extends Canvas {
             numscore=25;
             size=14;
             //enemy=random.nextInt(8);
-            String st1=GameLogic.getNumberForChoose()[0].substring(0,1);
-            String st2=GameLogic.getNumberForChoose()[1].substring(0,1);
-            if(st1.equals("+")||st1.equals("*")){
-                //++
-                if(st2.equals("+")||st2.equals("*")){
-                    enemy=0;
-                }
-                //+-
-                else {
-                    enemy= random.nextInt(3,4);
-                }
-            }else {
-                //-+
-                if(st2.equals("+")||st2.equals("*")){
-                    enemy=random.nextInt(1,3);
-                }
-                //--
-                else {
-                    enemy= random.nextInt(5,8);
-                }
-            }
+            enemy=EnemyMove.getEnemyPic();
         }
         else if(round==GameLogic.getLap()){
             frame.getContentPane().removeAll();
