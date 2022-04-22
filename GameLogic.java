@@ -59,6 +59,9 @@ public class GameLogic {
         }
     }
     public static void checkScore(String s){
+        Sound so=new Sound();
+        so.setFile(4);
+        so.play();
         switch(s){
             case "L"->score=answer[0];
             case "R"->score=answer[1];
@@ -67,7 +70,7 @@ public class GameLogic {
     public static void hitEnemy(){
         score-=10;
         Sound s=new Sound();
-        s.setFile(3);
+        s.setFile(5);
         s.play();
     }
     public static void setScore(int s){
