@@ -21,8 +21,8 @@ public class GameLauncher {
         sound = new Sound();
 
         sound.setFile(2);
-        sound.play();
-        sound.loop();
+        //sound.play();
+        //sound.loop();
 
         mainFrame.add(new MainDisplay());
         mainFrame.setTitle("PAC MATH");

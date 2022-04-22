@@ -49,4 +49,7 @@ public class EnemyMove {
         }
         return enemy;
     }
+    public static int getEnemyRan(){
+        return random.nextInt(170,550);
+    }
 }

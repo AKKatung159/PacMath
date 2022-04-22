@@ -8,6 +8,7 @@ public class Sound {
         soundURL[0] = getClass().getResource("Background/ping_pong_8bit_plop.wav");
         soundURL[1] = getClass().getResource("Background/pacman_beginning.wav");
         soundURL[2] = getClass().getResource("Background/sound.wav");
+        soundURL[3] = getClass().getResource("Background/deathSound.wav");
     }
     public void setFile(int i) {
         try {

@@ -64,6 +64,12 @@ public class GameLogic {
             case "R"->score=answer[1];
         }
     }
+    public static void hitEnemy(){
+        score-=10;
+        Sound s=new Sound();
+        s.setFile(3);
+        s.play();
+    }
     public static void setScore(int s){
         score=0;
         k=0;
