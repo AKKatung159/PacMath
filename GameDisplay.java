@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class GameDisplay extends Canvas {
     private int num=0,num2=60,round=0,enemy=0,enemyrandom=0;
+    private static int roundd;
     private double size=14,numscore=30,xEnemy=0;
     private boolean checkBomb=false;
     private JFrame frame=GameLauncher.getMainFrame();
@@ -15,6 +16,7 @@ public class GameDisplay extends Canvas {
         return keyMove;
     }
     public GameDisplay(){
+        roundd=round;
         new GameLogic();
         GameLogic.setScore(0);
         enemy=EnemyMove.getEnemyPic();
@@ -41,6 +43,8 @@ public class GameDisplay extends Canvas {
             checkBomb=true;
         }
         if(num>300&&round<=GameLogic.getLap()){
+            round++;
+            roundd=round;
             if(GameKeyListener.getPoint().x>340){
                 GameLogic.checkScore("R");
             }
@@ -50,7 +54,8 @@ public class GameDisplay extends Canvas {
 
             new GameLogic();
 
-            round++;
+
+            System.out.println(round);
             num=0;
             num2=60;
             numscore=32;
@@ -114,5 +119,8 @@ public class GameDisplay extends Canvas {
         //draw score game
         g.setFont(new Font("Emulogic", 1, 14));
         g.drawString("SCORE : " + GameLogic.getScore(), 20, 30);
+    }
+    public static int getRound(){
+        return roundd;
     }
 }
