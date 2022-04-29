@@ -5,12 +5,12 @@ public class Sound {
     private Clip clip;
     private URL soundURL[] = new URL[20];
     public Sound() {
-        soundURL[0] = getClass().getResource("Background/ping_pong_8bit_plop.wav");
-        soundURL[1] = getClass().getResource("Background/pacman_beginning.wav");
-        soundURL[2] = getClass().getResource("Background/sound.wav");
-        soundURL[3] = getClass().getResource("Background/deathSound.wav");
-        soundURL[4] = getClass().getResource("Background/add score.wav");
-        soundURL[5] = getClass().getResource("Background/loseScore.wav");
+        soundURL[0] = getClass().getResource("Sound/ping_pong_8bit_plop.wav");
+        soundURL[1] = getClass().getResource("Sound/pacman_beginning.wav");
+        soundURL[2] = getClass().getResource("Sound/sound.wav");
+        soundURL[3] = getClass().getResource("Sound/deathSound.wav");
+        soundURL[4] = getClass().getResource("Sound/add score.wav");
+        soundURL[5] = getClass().getResource("Sound/loseScore.wav");
     }
     public void setFile(int i) {
         try {

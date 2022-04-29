@@ -34,10 +34,10 @@ public class GameDisplay extends Canvas {
         Image speedWay = t.getImage("Background/speedWay.png");
 
         for (int j = 0; j < stage.length ; j++) {
-            stage[j] = t.getImage("Asset/" + (j+1) + ".gif");
+            stage[j] = t.getImage("Enemy/" + (j+1) + ".gif");
         }
         for (int j = 0; j < enemyrand.length ; j++) {
-            enemyrand[j] = t.getImage("Background/enemy" + (j+1) + ".gif");
+            enemyrand[j] = t.getImage("Enemy/enemy" + (j+1) + ".gif");
         }
         if((num+150)>350&&Math.abs(GameKeyListener.getPoint().x+20-(int) xEnemy)<30){
             GameLogic.hitEnemy();

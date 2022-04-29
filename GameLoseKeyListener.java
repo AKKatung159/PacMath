@@ -18,12 +18,12 @@ public class GameLoseKeyListener implements KeyListener {
     public void keyPressed(KeyEvent e) {
         key = e.getKeyCode();
         //System.out.println(key);
-        if (key == 40||key==65) {//left
+        if (key == 40||key==87) {//left
             j += 1;
             Sound s = new Sound();
             s.setFile(0);
             s.play();
-        } else if (key == 38||key==68) {//right
+        } else if (key == 38||key==83) {//right
             j -= 1;
             if (j < 0) {
                 j = 3;
