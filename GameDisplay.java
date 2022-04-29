@@ -58,7 +58,7 @@ public class GameDisplay extends Canvas {
             new GameLogic();
 
 
-            System.out.println(round);
+            //System.out.println(round);
             num=0;
             num2=60;
             numscore=32;

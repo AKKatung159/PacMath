@@ -18,7 +18,7 @@ public class GameLogic {
             numberForChoose[0]=" ";
             numberForChoose[1]=" ";
             if(GameDisplay.getRound()==0){
-                System.out.println(GameDisplay.getRound());
+                //System.out.println(GameDisplay.getRound());
                 //System.out.println(roundddd);
                 for(int i=0;i<2;i++){
                     int x=r.nextInt(2);//สุ่มเครื่องหมาย
