@@ -12,7 +12,7 @@ public class AboutKeyListener implements KeyListener {
 
     public void keyPressed(KeyEvent e) {
         key = e.getKeyCode();//รับ key code
-        if (key == 10) {//รับ key enter
+        if (key == 10||key==32) {//รับ key enter
             Sound s = new Sound();
             s.setFile(0);
             s.play(); //เล่นเสียง

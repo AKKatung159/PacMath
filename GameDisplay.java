@@ -3,7 +3,8 @@ import java.awt.*;
 import java.util.Random;
 
 public class GameDisplay extends Canvas {
-    private int num=0,num2=60,round=0,enemy=0,enemyrandom=0;
+    private int num=0,num2=60,round=0,enemy=0,enemyrandom=0,numSpeedWay2=150;
+    private int[] numSpeedWay=new int[]{-150,-250,-350,-450,-550,-650};
     private static int roundd;
     private double size=14,numscore=30,xEnemy=0;
     private boolean checkBomb=false;
@@ -30,6 +31,8 @@ public class GameDisplay extends Canvas {
         Image player = t.getImage("Background/player.gif");
         Image frameLeft = t.getImage("Background/Frame 1.png");
         Image frameRight = t.getImage("Background/Frame 2.png");
+        Image speedWay = t.getImage("Background/speedWay.png");
+
         for (int j = 0; j < stage.length ; j++) {
             stage[j] = t.getImage("Asset/" + (j+1) + ".gif");
         }
@@ -81,11 +84,28 @@ public class GameDisplay extends Canvas {
         }
         num+=6.25;
         num2+=1.25;
+        for (int i = 0; i < numSpeedWay.length; i++) {
+            numSpeedWay[i]+=7;
+        }
+        //numSpeedWay2+=4;
         numscore+=6.75;
         size+=0.30;
 
         //display game
         g.drawImage(gameDisplay, 0, 0, this);
+        for (int i = 0; i < numSpeedWay.length; i++) {
+            if(numSpeedWay[i]>520){
+                numSpeedWay[i]=-150-(i*100);
+                numSpeedWay2=150;
+            }
+        }
+        //speed way
+//        g.drawImage(speedWay,(int)(745-numSpeedWay2*4)/2,numSpeedWay[0], (int)(numSpeedWay2*4),(int) numSpeedWay2,this);
+//        g.drawImage(speedWay,(int)(745-numSpeedWay2*4)/2,numSpeedWay[1], (int)(numSpeedWay2*4),(int) numSpeedWay2,this);
+//        g.drawImage(speedWay,(int)(745-numSpeedWay2*4)/2,numSpeedWay[2], (int)(numSpeedWay2*4),(int) numSpeedWay2,this);
+//        g.drawImage(speedWay,(int)(745-numSpeedWay2*4)/2,numSpeedWay[3], (int)(numSpeedWay2*4),(int) numSpeedWay2,this);
+//        g.drawImage(speedWay,(int)(745-numSpeedWay2*4)/2,numSpeedWay[4], (int)(numSpeedWay2*4),(int) numSpeedWay2,this);
+//        g.drawImage(speedWay,(int)(745-numSpeedWay2*4)/2,numSpeedWay[5], (int)(numSpeedWay2*4),(int) numSpeedWay2,this);
 
         //enemy gate logic
         g.drawImage(stage[enemy], (int) ((720 - num2*5.6)/2),num, (int) (num2*5.6),num2,this );//(GameLauncher.getMainFrame().getHeight() - stage[0].getHeight(null))/2
@@ -113,7 +133,7 @@ public class GameDisplay extends Canvas {
         g.drawImage(player, GameKeyListener.getPoint().x, GameKeyListener.getPoint().y-(40*GameLogic.getScore()/1000),40+(40*GameLogic.getScore()/1000), 40+(40*GameLogic.getScore()/1000), this); //k
 
         //draw frame
-        g.drawImage(frameLeft,0,-4,this);
+        g.drawImage(frameLeft,-1,-4,this);
         g.drawImage(frameRight,GameLauncher.getMainFrame().getWidth()-frameRight.getWidth(null),-4,this);
 
         //draw score game

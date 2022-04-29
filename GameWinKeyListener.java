@@ -18,12 +18,12 @@ public class GameWinKeyListener implements KeyListener {
     public void keyPressed(KeyEvent e) {
         key = e.getKeyCode();
         //System.out.println(key);
-        if (key == 40) {//left
+        if (key == 40||key==65) {//left
             j += 1;
             Sound s = new Sound();
             s.setFile(0);
             s.play();
-        } else if (key == 38) {//right
+        } else if (key == 38||key==68) {//right
             j -= 1;
             if (j < 0) {
                 j = 3;
@@ -31,7 +31,7 @@ public class GameWinKeyListener implements KeyListener {
             Sound s = new Sound();
             s.setFile(0);
             s.play();
-        } else if (key == 10) { //enter
+        } else if (key == 10||key==32) { //enter
             Sound s = new Sound();
             s.setFile(0);
             s.play();

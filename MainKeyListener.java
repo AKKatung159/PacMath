@@ -18,13 +18,13 @@ public class MainKeyListener implements KeyListener {
     public void keyPressed(KeyEvent e) {
         key = e.getKeyCode();
         //System.out.println(key);
-        if (key == 40) { //down arrow
+        if (key == 40||key==83) { //down arrow
             j += 1;
             Sound s = new Sound();
             s.setFile(0);
             s.play();
         }
-        if (key == 38) { //up arrow
+        if (key == 38||key==87) { //up arrow
             j -= 1;
             if (j < 0) {
                 j = 3;
@@ -33,14 +33,14 @@ public class MainKeyListener implements KeyListener {
             s.setFile(0);
             s.play();
         }
-        if (key == 10) { //enter
+        if (key == 10||key==32) { //enter
             Sound s = new Sound();
             s.setFile(0);
             s.play();
             if (j%3 == 0) {
-                f.getContentPane().removeAll();
-                f.add(new GameDisplay());
-                f.validate();
+                f.getContentPane().removeAll();// ลบobj เก่าออกให้หมด
+                f.add(new GameDisplay());//
+                f.validate();// รีเฟรชจอ
                 f.removeKeyListener(f.getKeyListeners()[0]);
                 f.addKeyListener(new GameKeyListener());
             }
@@ -80,3 +80,4 @@ public class MainKeyListener implements KeyListener {
     }
 }
 //down 40 up 38 enter 10
+//w 87 a 65 s 83 d 68 space 32
